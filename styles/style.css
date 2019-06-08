@@ -1,9 +1,81 @@
-.message {
+html {
+    font-size: 10px;
     font-family: 'Roboto', sans-serif;
-    font-size: 75px;
-    font-variant: small-caps;
+    margin: 0; 
+    height: 100%;
+    font-weight: 300;
 }
 
 body {
-    text-align: center
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 90%; /* change this to 100% when you want a footer */
 }
+
+header {
+    height: 6em;
+    background-color: black;
+}
+
+.main {
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(10em, 1fr));
+    width: 100em;
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1 0 auto;
+}
+
+a {
+    color: rgb(66, 164, 244);
+    text-decoration: none;
+}
+
+a:focus, a:hover {
+    text-decoration: underline;
+}
+
+.info {
+    text-align: center;
+    font-size: 1.4em;
+    grid-column: 1 / 3;
+    grid-row: 1;
+    border-right: 0.1em solid rgb(190, 190, 190);
+    padding-right: 1.5em;
+}
+
+.info h3 {
+    font-weight: 400;
+}
+
+.headshot {
+    width: 100%;
+}
+
+.media {
+    display: flex;
+}
+
+.media a {
+    flex: 2em;
+}
+
+.bio {
+    padding-left: 1.5em;
+    font-size: 1.6em;
+    grid-column: 3 / 11;
+    grid-row: 1;
+}
+
+/*
+footer {
+    font-size: 1.2em;
+    width: 100em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    flex-shrink: 0;
+}
+*/
