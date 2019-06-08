@@ -44,6 +44,7 @@ a:focus, a:hover {
     grid-row: 1;
     border-right: 0.1em solid rgb(190, 190, 190);
     padding-right: 1.5em;
+    padding-left: 1.5em;
 }
 
 .info h3 {
@@ -64,6 +65,7 @@ a:focus, a:hover {
 
 .bio {
     padding-left: 1.5em;
+    padding-right: 1.5em;
     font-size: 1.6em;
     grid-column: 3 / 11;
     grid-row: 1;
