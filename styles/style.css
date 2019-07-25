@@ -1,83 +1,53 @@
-html {
-    font-size: 10px;
-    font-family: 'Roboto', sans-serif;
-    margin: 0; 
-    height: 100%;
-    font-weight: 300;
-}
-
 body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    height: 90%; /* change this to 100% when you want a footer */
+    margin: auto;
+    padding: 5vh 0 5vh;
 }
 
-header {
-    height: 6em;
-    background-color: black;
+.content {
+    position: relative;
+    height: 90vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
-.main {
-    margin-top: 1.5em;
-    display: grid;
-    grid-template-columns: repeat(10, minmax(10em, 1fr));
-    width: 100em;
-    margin-left: auto;
-    margin-right: auto;
-    flex: 1 0 auto;
-}
-
-a {
-    color: rgb(66, 164, 244);
-    text-decoration: none;
-}
-
-a:focus, a:hover {
-    text-decoration: underline;
-}
-
-.info {
-    text-align: center;
-    font-size: 1.4em;
-    grid-column: 1 / 3;
-    grid-row: 1;
-    border-right: 0.1em solid rgb(190, 190, 190);
-    padding-right: 1.5em;
-    padding-left: 1.5em;
-}
-
-.info h3 {
-    font-weight: 400;
+.content::-webkit-scrollbar {
+    width: 0 !important;
 }
 
 .headshot {
-    width: 100%;
+    width: 40%;
+    margin: auto;
 }
 
-.media {
-    display: flex;
+#navbar {
+    padding: 0;
+    margin: auto;
 }
 
-.media a {
-    flex: 2em;
+.nav {
+    margin: auto;
 }
 
-.bio {
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    font-size: 1.6em;
-    grid-column: 3 / 11;
-    grid-row: 1;
+#contact-list {
+    padding-left: 0;
 }
 
-/*
-footer {
-    font-size: 1.2em;
-    width: 100em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2em;
-    flex-shrink: 0;
+#contact-list > li {
+    display: inline-block;
 }
-*/
+
+.sidebar {
+    text-align: center;
+}
+
+h3 {
+    color: #0074d9;
+}
+
+path {
+    fill: #0074d9;
+}
+
+.project-item {
+    border-bottom: 1px solid gray;
+}
