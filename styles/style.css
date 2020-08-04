@@ -39,6 +39,10 @@ body h2 {
     }
 }
 
+#social {
+    margin: 10px auto 10px auto;
+}
+
 #social li {
     display: inline;
 }
@@ -51,7 +55,6 @@ body h2 {
     border-radius: 2px;
     padding: 5px;
 }
-
 
 body a {
     color: var(--link-color);
@@ -84,6 +87,7 @@ ul {
     grid-row: 1;
     font-size: 0.8em;
 }
+
 .circle {
     width: 10px;
     height: 10px;
@@ -116,4 +120,21 @@ ul {
 .logo img {
     width: 100px;
     padding-bottom: 15px;
+}
+
+.paper-supp {
+    display: block;
+    margin-top: 16px;
+
+}
+
+.paper-supp > a {
+    background-color: var(--link-color);
+    color: white;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.disabled {
+    background-color: silver !important;
 }
