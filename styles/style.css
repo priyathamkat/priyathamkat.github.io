@@ -1,54 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --highlight-color: rgb(57, 96, 219);
+    --timeline-color: rgb(152, 219, 132);
+    --link-color: rgb(194, 50, 84);
+    --text-color: rgb(32, 32, 32);
+}
+
+html {
+    margin: auto;
+    max-width: 1200px;
+}
+
 body {
-    margin: auto;
-    padding: 5vh 0 5vh;
+    font-family: Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: var(--text-color);
 }
 
-.content {
-    position: relative;
-    height: 90vh;
-    overflow-y: scroll;
-    scrollbar-width: none;
+body h1 {
+    color: var(--highlight-color);
 }
 
-.content::-webkit-scrollbar {
-    width: 0 !important;
+body h2 {
+    color: var(--highlight-color);
 }
 
-.headshot {
-    width: 40%;
-    margin: auto;
+@media screen and (min-width: 1000px) {
+    header {
+        float: left;
+        padding-right: 20px;
+        position: fixed;
+    }
+        
+    .content {
+        float: right;
+        width: 60%;
+    }
 }
 
-#navbar {
-    padding: 0;
-    margin: auto;
+#social li {
+    display: inline;
 }
 
-.nav {
-    margin: auto;
-}
-
-#contact-list {
-    padding-left: 0;
-}
-
-#contact-list > li {
+#social a {
     display: inline-block;
+    background-color: var(--highlight-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 2px;
+    padding: 5px;
 }
 
-.sidebar {
-    text-align: center;
+
+body a {
+    color: var(--link-color);
+    white-space: nowrap;
+    text-decoration: none;
 }
 
-h3 {
-    color: #0074d9;
+ul {
+    padding-left: 0;
+    list-style-type: none;
 }
 
-path {
-    fill: #0074d9;
+#email:hover {
+    cursor: pointer;
 }
 
-.project-item {
-    border-bottom: 1px solid gray;
-    margin-bottom: 10px;
+#github img {
+    object-fit: cover;
+    height: 28px;
+}
+
+.time-period {
+   display: grid;
+   grid-template-columns: 120px 12px 1fr 0px;
+}
+
+.year {
+    padding-right: 10px;
+    text-align: right;
+    grid-row: 1;
+    font-size: 0.8em;
+}
+.circle {
+    width: 10px;
+    height: 10px;
+    background: var(--timeline-color);
+    border: 2px solid white;
+    border-radius: 20px;
+    grid-row: 1;
+    grid-column: 2;
+    z-index: 1;
+}
+
+.activity {
+    padding-left: 15px;
+    border-left: 2px solid var(--timeline-color);
+    grid-column: 2 / 4;
+    grid-row: 1;
+    margin-left: 6px;
+}
+
+.activity p {
+    margin-top: 0px;
+}
+
+.logo {
+    padding-left: 15px;
+    grid-row: 1;
+    grid-column: 4;
+}
+
+.logo img {
+    width: 100px;
+    padding-bottom: 15px;
 }
