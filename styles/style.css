@@ -71,11 +71,6 @@ ul {
     cursor: pointer;
 }
 
-#github img {
-    object-fit: cover;
-    height: 28px;
-}
-
 .time-period {
    display: grid;
    grid-template-columns: 120px 12px 1fr 0px;
