@@ -33,19 +33,13 @@ body h2 {
     display: inline;
 }
 
-#social a {
+#social > a {
     display: inline-block;
     background-color: var(--highlight-color);
     color: white;
     text-decoration: none;
     border-radius: 2px;
     padding: 5px;
-}
-
-body a {
-    color: var(--link-color);
-    white-space: nowrap;
-    text-decoration: none;
 }
 
 ul {
