@@ -10,7 +10,7 @@
 html {
     margin: auto;
     max-width: 1200px;
-    padding: 15px;
+    padding: 10px;
 }
 
 body {
@@ -27,7 +27,7 @@ body a {
 
 .btn {
     color: white;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 5px;
 }
 
