@@ -24,3 +24,21 @@ body a {
     white-space: nowrap;
     text-decoration: none;
 }
+
+.btn {
+    color: white;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+.blue {
+    background-color: var(--highlight-color);
+}
+
+.pink {
+    background-color: var(--link-color);
+}
+
+.disabled {
+    background-color: silver !important;
+}
