@@ -5,8 +5,6 @@ function setEmail(text) {
     email.querySelector('a').textContent = text;
 }
 
-setEmail('Email');
-
 function showEmail(e) {
     e.preventDefault();
     let id = name.textContent;
