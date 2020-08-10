@@ -48,7 +48,7 @@ ul {
 
 .time-period {
    display: grid;
-   grid-template-columns: 78px 12px 1fr;
+   grid-template-columns: 80px 12px 1fr;
 }
 
 .year {
