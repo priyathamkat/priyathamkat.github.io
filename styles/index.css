@@ -1,13 +1,5 @@
-body h1 {
-    color: var(--highlight-color);
-}
-
-body h2 {
-    color: var(--highlight-color);
-}
-
 @media screen and (min-width: 1000px) {
-    header {
+    .info-card {
         float: left;
         padding-right: 20px;
         position: fixed;

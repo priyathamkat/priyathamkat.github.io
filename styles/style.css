@@ -17,18 +17,86 @@ body {
     font-family: Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: var(--text-color);
+    min-height: 0px;
 }
 
-body a {
+a {
     color: var(--link-color);
     white-space: nowrap;
     text-decoration: none;
 }
 
-.btn {
+a:hover, a:visited {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+h1, h2 {
+    color: var(--highlight-color);
+}
+
+.header h1 {
+    font-weight: normal;
+    margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        flex-direction: column;
+    }
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 10px 0;
+}
+
+.footer {
+    color: rgb(96, 96, 96);
+    margin: 100px 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8em;
+}
+
+.blog-list {
+    list-style-type: none;
+}
+
+.page-title {
+    padding-bottom: 10px;
+}
+
+.page-title h1, .page-title h2 {
+    margin: 0;
+}
+
+.gray {
+    color: rgb(96, 96, 96);
+}
+
+header {
+    display: inline;
+}
+.about {
+    float: right;
+}
+
+a.btn {
     color: white;
     border-radius: 4px;
     padding: 5px;
+}
+
+a:hover.btn, a:visited.btn {
+    color: white;
+    text-decoration: none;
 }
 
 .blue {
