@@ -8,3 +8,6 @@ url: "https://priyathamkat.com" # the base hostname & protocol for your site, e.
 theme: minima
 plugins:
   - jekyll-feed
+
+# Link format
+permalink: /blog/:title/
