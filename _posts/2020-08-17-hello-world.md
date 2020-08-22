@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Hello World!"
+title:  "Hello, World!"
 date:   2020-08-17 00:48:07 +0530
 ---
-Hi there! This is just a test blog post. Hopefully my next post has something actually interesting.
+Hi there! This is just a test blog post. I plan to blog regularly. Hopefully my other posts have something actually interesting.
