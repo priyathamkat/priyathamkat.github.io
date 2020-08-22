@@ -120,3 +120,7 @@ a:hover.btn, a:visited.btn {
 .disabled {
     background-color: silver !important;
 }
+
+.nowrap {
+    white-space: nowrap;
+}
