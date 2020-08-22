@@ -22,6 +22,7 @@ permalink: /blog/
                 <h2>{{ post.title }}</h2>
             </a>
             <time class="gray">{{ post.date | date: "%b %-d, %Y" }}</time>
+            <p>{{ post.summary }}</p>
         </li>
         {% endfor %}
     </ul>
