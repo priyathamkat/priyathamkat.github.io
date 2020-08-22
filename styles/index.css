@@ -97,6 +97,11 @@ ul {
     padding-bottom: 15px;
 }
 
+.paper-title {
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
 .paper-supp {
     display: block;
     margin-top: 16px;
