@@ -1,0 +1,30 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Priyatham Kattakinda">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Priyatham Kattakinda</title>
+</head>
+
+<body>
+    {%- include header.html -%}
+    <ul class="blog-list">
+        {% for post in site.posts %}
+        <li class="page-title">
+            <a href="{{ post.url }}">
+                <h2>{{ post.title }}</h2>
+            </a>
+            <time class="gray">{{ post.date | date: "%b %-d, %Y" }}</time>
+        </li>
+        {% endfor %}
+    </ul>
+    {%- include footer.html -%}
+</body>
+
+</html>

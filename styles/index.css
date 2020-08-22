@@ -1,16 +1,13 @@
-body h1 {
-    color: var(--highlight-color);
+.info-card {
+    text-align: center;
 }
 
-body h2 {
-    color: var(--highlight-color);
-}
-
-@media screen and (min-width: 1000px) {
-    header {
+@media screen and (min-width: 1100px) {
+    .info-card {
         float: left;
         padding-right: 20px;
         position: fixed;
+        text-align: left;
     }
         
     .content {
@@ -27,10 +24,18 @@ body h2 {
 
 #social {
     margin: 10px auto 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1100px) {
+    #social {
+        justify-content: center;
+    }
 }
 
 #social li {
-    display: inline;
+    margin: 2px 2px 2px 0px;
 }
 
 #social a {
