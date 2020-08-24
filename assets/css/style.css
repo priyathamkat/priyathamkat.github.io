@@ -124,8 +124,3 @@ a:hover.btn, a:visited.btn {
 .nowrap {
     white-space: nowrap;
 }
-
-figcaption {
-    text-align: center;
-    font-style: italic;
-}
