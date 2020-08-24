@@ -9,7 +9,7 @@ permalink: /blog/
     <meta name="author" content="Priyatham Kattakinda">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/main.css">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
     <title>Priyatham Kattakinda</title>
 </head>
 
@@ -18,11 +18,11 @@ permalink: /blog/
     <ul class="blog-list">
         {% for post in site.posts %}
         <li class="page-title">
+            <time>{{ post.date | date: "%b %-d, %Y" }}</time>
             <a href="{{ post.url }}">
                 <h2>{{ post.title }}</h2>
             </a>
-            <time class="gray">{{ post.date | date: "%b %-d, %Y" }}</time>
-            <p>{{ post.summary }}</p>
+            <p><i>{{ post.summary }}</i></p>
         </li>
         {% endfor %}
     </ul>
