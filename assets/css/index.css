@@ -1,14 +1,13 @@
 .info-card {
+    padding-top: 25px;
     text-align: center;
 }
 
 @media screen and (min-width: 1100px) {
     .info-card {
-        padding-top: 25px;
         float: left;
         padding-right: 20px;
         position: fixed;
-        text-align: left;
     }
         
     .content {
@@ -27,6 +26,7 @@
     margin: 10px auto 10px auto;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1100px) {
@@ -36,11 +36,12 @@
 }
 
 #social li {
-    margin: 2px 2px 2px 0px;
+    margin: 0px 5px 0px 5px;
 }
 
 #social a {
     display: inline-block;
+    font-size: 0.8em;
 }
 
 ul {
@@ -48,8 +49,12 @@ ul {
     list-style-type: none;
 }
 
-#email:hover {
+#email-icon:hover {
     cursor: pointer;
+}
+
+#email {
+    height: 1em;
 }
 
 .time-period {
