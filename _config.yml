@@ -9,5 +9,7 @@ theme: minima
 plugins:
   - jekyll-feed
 
-# Link format
-permalink: /blog/:title/
+# Link structure
+collections:
+    posts:
+        permalink: /blog/:title/
