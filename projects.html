@@ -1,0 +1,32 @@
+---
+permalink: /projects/
+---
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Priyatham Kattakinda">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Priyatham Kattakinda's projects">
+    <link rel="stylesheet" href="/assets/main.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <title>Priyatham Kattakinda</title>
+</head>
+
+<body>
+    {%- include nav.html -%}
+    <h1 style="text-align: center;">Coming Soon!</h1>
+    <ul class="projects-list">
+        {% for post in site.projects %}
+        <li class="project-title">
+            <a href="{{ project.url }}">
+                <h2>{{ project.title }}</h2>
+            </a>
+            <p><i>{{ project.summary }}</i></p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
