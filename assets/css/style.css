@@ -110,7 +110,7 @@ a:hover.btn, a:visited.btn {
 }
 
 .disabled {
-    background-color: silver !important;
+    background-color: silver;
 }
 
 .nowrap {
