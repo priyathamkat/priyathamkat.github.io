@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <style amp-custom>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
         :root {
             --highlight-color: rgb(57, 96, 219);
             --timeline-color: rgb(152, 219, 132);
@@ -124,6 +126,7 @@
             color: white;
             border-radius: 4px;
             padding: 5px;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         a:hover.btn,
@@ -157,6 +160,7 @@
             background-color: rgb(32, 32, 32);
             margin-bottom: 10px;
             z-index: 3;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
         }
 
         .navbar {
@@ -177,6 +181,10 @@
         .info-card {
             padding-top: 25px;
             text-align: center;
+        }
+
+        .content {
+            padding-bottom: 25px;
         }
 
         @media screen and (min-width: 1100px) {
@@ -235,7 +243,7 @@
 
         .time-period {
             display: grid;
-            grid-template-columns: 80px 12px 1fr;
+            grid-template-columns: 100px 12px 1fr;
         }
 
         .year {
@@ -253,7 +261,17 @@
             border-radius: 20px;
             grid-row: 1;
             grid-column: 2;
+            z-index: 2;
+            margin-top: 3px;
+        }
+
+        #top-cover {
+            height: 10px;
+            width: 10px;
+            grid-row: 1;
+            grid-column: 2;
             z-index: 1;
+            background: white;
         }
 
         .activity {
@@ -279,15 +297,50 @@
             padding-bottom: 15px;
         }
 
-        .paper-title {
+        .paper-title,
+        .accomplishment-title {
             font-size: 1.1em;
             font-weight: 500;
         }
 
         .paper-supp {
-            display: block;
-            margin-top: 16px;
+            display: flex;
+            margin: 10px auto 10px auto;
+        }
 
+        .paper-supp>a {
+            margin-right: 10px;
+        }
+
+        .paper-supp>a:last-child {
+            margin-right: 0px;
+        }
+
+        .when {
+            padding-left: 5px;
+            font-size: 0.9em;
+            color: green;
+            font-weight: normal;
+        }
+
+        .when::before {
+            content: "[";
+        }
+
+        .when::after {
+            content: "]";
+        }
+
+        .accomplishment {
+            margin-bottom: 10px;
+        }
+
+        i {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            border-bottom: solid 2px var(--highlight-color);
         }
     </style>
     <title>Priyatham Kattakinda | Homepage</title>
@@ -365,31 +418,18 @@
 <body>
     {%- include nav.html -%}
     <div class="info-card">
-        <amp-img class="headshot" src="/assets/images/headshot.png" width="154" height="154" alt="priyatham - headshot">
-        </amp-img>
+        <img class="headshot" src="/assets/images/headshot.png" alt="priyatham - headshot">
         <h1>Priyatham Kattakinda</h1>
         <p class="">
             PhD student <br>
             Electrical and Computer Engineering <br>
+            A. James Clark School of Engineering <br>
             University of Maryland
         </p>
         <div>
-            <amp-state id="emailAddress">
-                <script type="application/json">
-                    " "
-                </script>
-            </amp-state>
-            <amp-state id="emailComponents">
-                <script type="application/json">
-                    {
-                        "id": "pkattaki",
-                        "domain": "umd.edu"
-                    }
-                </script>
-            </amp-state>
             <ul id="social">
                 <li id="email-icon">
-                    <a on="tap:AMP.setState({emailAddress: emailComponents.id + '@' +emailComponents.domain})">
+                    <a>
                         <i class="fas fa-envelope-square fa-3x"></i>
                     </a>
                 </li>
@@ -409,7 +449,7 @@
                     </a>
                 </li>
             </ul>
-            <a [text]="emailAddress" [href]="'mailto:' + emailAddress" target="_blank">&nbsp;</a>
+            <a id="email" target="_blank">&nbsp;</a>
         </div>
     </div>
     <div class="content">
@@ -417,21 +457,25 @@
             <h2>About</h2>
             <p>
                 I am a PhD student in the Department of <span class="nowrap">Electrical and Computer Engineering</span>
-                at the
-                <span class="nowrap"> University of Maryland, College Park.</span> My primary research interest is in
-                theoretical <span class="nowrap">Machine Learning</span> and its applications in <span
-                    class="nowrap">Computer Vision</span>.
+                at the <span class="nowrap"> University of Maryland, College Park.</span> My primary research interest
+                is in theoretical <span class="nowrap">Machine Learning</span> and its applications in
+                <span class="nowrap">Computer Vision</span>. I love working on generalized algorithms that can solve a
+                wide variety of problems.
             </p>
-            <p>Outside of research, I am into badminton, Dota 2 and photography.</p>
         </section>
         <section id="timeline">
             <h2>Timeline</h2>
             <div class="time-period">
-                <div class="year">2020</div>
+                <div class="year">2020 - Present</div>
+                <div id="top-cover"></div>
                 <div class="circle"></div>
                 <div class="activity">
                     <p>
-                        I am really excited about starting my PhD at UMD!
+                        PhD in Electrical and Computer Engineering, <a href="https://umd.edu/">University of
+                            Maryland</a>
+                    </p>
+                    <p>
+                        I am really excited about starting my PhD!
                     </p>
                 </div>
             </div>
@@ -440,13 +484,14 @@
                 <div class="circle"></div>
                 <div class="activity">
                     <p>
-                        M.Tech in <span class="nowrap">Electrical Engineering</span> from
-                        <a href="https://www.iitm.ac.in/" target="_blank">IIT Madras</a>. For my Master's thesis, I
-                        worked on <span class="nowrap">image denoising</span> with
-                        <a href="http://www.ee.iitm.ac.in/~raju/" target="_blank">Prof. A. N. Rajagopalan</a>.
+                        M.Tech in <span class="nowrap">Electrical Engineering</span>,
+                        <a href="https://www.iitm.ac.in/" target="_blank">IIT Madras</a>
                     </p>
                     <p>
-                        In the summer of 2019, I also did an internship at <a href="https://www.kla-tencor.com/"
+                        For my Master's thesis, I worked on <span class="nowrap">image denoising</span> with
+                        <a href="http://www.ee.iitm.ac.in/~raju/" target="_blank">Prof. A. N. Rajagopalan</a>.
+
+                        In the summer of 2019, I did an internship with <a href="https://www.kla-tencor.com/"
                             target="_blank">KLA</a> where I worked on <span class="nowrap">super-resolution</span> of
                         SEM images.
                     </p>
@@ -457,11 +502,14 @@
                 <div class="circle"></div>
                 <div class="activity">
                     <p>
-                        I was one of the co-founders of <a href="http://www.tessact.com" target="_blank">Tessact</a>. At
-                        Tessact, our mission was to bring the latest
-                        advancements in <span class="nowrap">Deep Learning</span> to the media industry.
-                        Specifically, we worked on frame-by-frame video annotation, which is essential for
-                        automating the process of serving contextual advertisements and meeting compliance standards.
+                        Co-Founder, <a href="https://www.tessact.com" target="_blank">Tessact</a>
+                    </p>
+                    <p>
+                        At Tessact, our mission was to bring the latest advancements in
+                        <span class="nowrap">Deep Learning</span> to the media industry.
+                        Specifically, we developed software for scalable and accurate frame-by-frame video annotation.
+                        This is the first and, arguably, the hardest step in automating the process of serving
+                        contextual advertisements and meeting compliance standards.
                     </p>
                 </div>
             </div>
@@ -470,8 +518,10 @@
                 <div class="circle"></div>
                 <div class="activity">
                     <p>
-                        B.Tech in <span class="nowrap">Electrical Engineering</span> from
-                        <a href="http://www.iitb.ac.in/" target="_blank">IIT Bombay</a>.
+                        B.Tech in <span class="nowrap">Electrical Engineering</span>,
+                        <a href="http://www.iitb.ac.in/" target="_blank">IIT Bombay</a>
+                    </p>
+                    <p>
                         Here, I had my first exposure to the wonderful world of
                         <span class="nowrap">Computer Vision</span>, in the courses taught by
                         <a href="https://www.cse.iitb.ac.in/~ajitvr/" target="_blank">Prof. Ajit Rajwade</a>.
@@ -493,14 +543,65 @@
                         IEEE International Conference on Image Processing (ICIP), UAE (Virtual), October 2020
                     </div>
                     <div class="paper-supp">
-                        <a class="disabled btn">PDF</a>
+                        <!--a class="disabled btn">PDF</a-->
                         <a class="pink btn" href="https://github.com/priyathamkat/unpaired-image-denoising"
                             target="_blank">Code</a>
                     </div>
                 </li>
             </ul>
         </section>
+        <section id="accomplishments">
+            <h2>Accomplishments</h2>
+            <ul>
+                <li class="accomplishment">
+                    <div class="accomplishment-title">
+                        Siemens Prize <span class="when">September 2020</span>
+                    </div>
+                    <div class="accomplishment-description">
+                        Awarded to the M. Tech student with the best academic record in Electrical Engineering at
+                        <span class="nowrap">IIT Madras</span>.
+                    </div>
+                </li>
+                <li class="accomplishment">
+                    <div class="accomplishment-title">
+                        All India Rank 80 in IIT-JEE<span class="when">June 2012</span>
+                    </div>
+                    <div class="accomplishment-description">
+                        Secured 80<sup>th</sup> rank (~ 470 000 total candidates, 99.98<sup>th</sup> percentile) in the
+                        <span class="nowrap">Joint
+                            Entrance
+                            Examination</span> conducted by the IITs in 2012.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="teaching">
+            <h2>Teaching</h2>
+            <h3>IIT Madras</h3>
+            <p>I was a teaching assistant for the following courses:</p>
+            <ul>
+                <li>Image Signal Processing <span class="when">Spring 2020</span></li>
+                <li>Multirate Digital Signal Processing <span class="when">Fall 2019</span></li>
+                <li>Probability Foundations for Electrical Engineers <span class="when">Spring 2019</span></li>
+            </ul>
+            In addition to the above, I adapted the assignments of Image Signal Processing for the
+            <a href="https://nptel.ac.in/">NPTEL</a> (a MOOC platform developed jointly by the IITs and IISc) course
+            taught by <span class="nowrap">Prof. A. N. Rajagopalan</span>. The course page is available <a
+                href="https://onlinecourses.nptel.ac.in/noc20_ee83/preview">here</a>.
+        </section>
+        <section id="outside-of-work">
+            <h2>Outside of Work...</h2>
+            <p>
+                I am into badminton and <a href="https://www.dota2.com" target="_blank">Dota 2</a>. I am also an amateur
+                photographer (check out my Instagram) and web developer; this website is a showcase of my budding
+                skills.
+            </p>
+            <p>
+                Although it's hard for me to find the time these days, I enjoy watching sci-fi/fantasy movies, TV shows.
+            </p>
+        </section>
     </div>
 </body>
+
 
 </html>

@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.content {
+    padding-bottom: 25px;
+}
+
 @media screen and (min-width: 1100px) {
     .info-card {
         float: left;
@@ -59,7 +63,7 @@ ul {
 
 .time-period {
    display: grid;
-   grid-template-columns: 80px 12px 1fr;
+   grid-template-columns: 100px 12px 1fr;
 }
 
 .year {
@@ -77,7 +81,17 @@ ul {
     border-radius: 20px;
     grid-row: 1;
     grid-column: 2;
+    z-index: 2;
+    margin-top: 3px;
+}
+
+#top-cover {
+    height: 10px;
+    width: 10px;
+    grid-row: 1;
+    grid-column: 2;
     z-index: 1;
+    background: white;
 }
 
 .activity {
@@ -103,13 +117,47 @@ ul {
     padding-bottom: 15px;
 }
 
-.paper-title {
+.paper-title, .accomplishment-title {
     font-size: 1.1em;
     font-weight: 500;
 }
 
 .paper-supp {
-    display: block;
-    margin-top: 16px;
+    display: flex;
+    margin: 10px auto 10px auto;
+}
 
+.paper-supp > a {
+    margin-right: 10px;
+}
+
+.paper-supp > a:last-child {
+    margin-right: 0px;
+}
+
+.when {
+    padding-left: 5px;
+    font-size: 0.9em;
+    color: green;
+    font-weight: normal;
+}
+
+.when::before {
+    content: "[";
+}
+
+.when::after {
+    content: "]";
+}
+
+.accomplishment {
+    margin-bottom: 10px;
+}
+
+i {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    border-bottom: solid 2px var(--highlight-color);
 }
