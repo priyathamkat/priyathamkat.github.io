@@ -13,7 +13,6 @@ function showEmail(e) {
     id = id.toLowerCase();
     const emailAddress = `${id}@umd.edu`; 
     email.textContent = emailAddress;
-    email.setAttribute('href', `mailto:${emailAddress}`);
     email.removeEventListener('click', showEmail);
 }
 
