@@ -107,17 +107,6 @@ ul {
     margin-top: 0px;
 }
 
-.logo {
-    padding-left: 15px;
-    grid-row: 1;
-    grid-column: 4;
-}
-
-.logo img {
-    width: 100px;
-    padding-bottom: 15px;
-}
-
 .paper-title, .accomplishment-title {
     font-size: 1.1em;
     font-weight: 500;
