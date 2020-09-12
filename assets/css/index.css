@@ -71,6 +71,7 @@ ul {
     text-align: right;
     grid-row: 1;
     font-size: 0.8em;
+    padding-top: 3px;
 }
 
 .circle {

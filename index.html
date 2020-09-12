@@ -25,8 +25,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <style amp-custom>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-
         :root {
             --highlight-color: rgb(57, 96, 219);
             --timeline-color: rgb(152, 219, 132);
@@ -251,6 +249,7 @@
             text-align: right;
             grid-row: 1;
             font-size: 0.8em;
+            padding-top: 3px;
         }
 
         .circle {
@@ -418,18 +417,32 @@
 <body>
     {%- include nav.html -%}
     <div class="info-card">
-        <img class="headshot" src="/assets/images/headshot.png" alt="priyatham - headshot">
+        <amp-img class="headshot" src="/assets/images/headshot.png" width="154" height="154" alt="Priyatham - headshot">
+        </amp-img>
         <h1>Priyatham Kattakinda</h1>
-        <p class="">
+        <p>
             PhD student <br>
             Electrical and Computer Engineering <br>
             A. James Clark School of Engineering <br>
             University of Maryland
         </p>
         <div>
+            <amp-state id="emailAddress">
+                <script type="application/json">
+                    " "
+                </script>
+            </amp-state>
+            <amp-state id="emailComponents">
+                <script type="application/json">
+                    {
+                        "id": "pkattaki",
+                        "domain": "umd.edu"
+                    }
+                </script>
+            </amp-state>
             <ul id="social">
                 <li id="email-icon">
-                    <a>
+                    <a on="tap:AMP.setState({emailAddress: emailComponents.id + '@' + emailComponents.domain})">
                         <i class="fas fa-envelope-square fa-3x"></i>
                     </a>
                 </li>
@@ -449,7 +462,7 @@
                     </a>
                 </li>
             </ul>
-            <a id="email" target="_blank">&nbsp;</a>
+            <a id="email" [text]="emailAddress" [href]="'mailto:' + emailAddress" target="_blank">&nbsp;</a>
         </div>
     </div>
     <div class="content">
