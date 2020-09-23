@@ -1,0 +1,76 @@
+---
+layout: project
+title: "Unpaired Image Denoising"
+authors: "<em>Priyatham Kattakinda</em>, A N Rajagopalan"
+location: "<a href=\"https://www.iitm.ac.in/\">IIT Madras</a>, Chennai, India"
+duration: "August 2019 - May 2020"
+category: "M. Tech Thesis"
+summary: "
+Deep Learning algorithms for image denoising are predominantly either fully supervised or fully unsupervised. Using
+flow-based generative models, we developed a semi-supervised method for image denoising that is applicable in scenarios
+where clean images are available, except that they are not ground truths for any noisy image (note that it's not
+possible to use supervised learning here). This work was published in IEEE International Conference on Image Processing
+(ICIP), 2020.
+"
+links:
+- <a class="pink btn" href="https://github.com/priyathamkat/unpaired-image-denoising" rel="noreferrer"
+    target="_blank">Code</a>
+showPage: false
+ord: 2
+---
+<div>
+    <section>
+        <h3>Abstract</h3>
+        <p>
+            Deep learning approaches in image processing predominantly resort to supervised learning. A majority of
+            methods for image denoising are no exception to this rule and hence demand pairs of noisy and corresponding
+            clean images. Only recently has there been the emergence of methods such as Noise2Void, where a deep neural
+            network learns to denoise solely from noisy images. However, when clean images that do not directly
+            correspond to any of the noisy images are actually available, there is room for improvement as these clean
+            images contain useful information that fully unsupervised methods do not exploit. In this paper, we propose
+            a method for image denoising in this setting. First, we use a flow-based generative model to learn a prior
+            from clean images. We then use it to train a denoising network without the need for any clean targets. We
+            demonstrate the efficacy of our method through extensive experiments and comparisons.
+        </p>
+    </section>
+    <section>
+        <h3>Some Background</h3>
+        <h4>Flow-based Generative Models</h4>
+        <p>
+            Simply put, a flow-based generative model \((h)\) is a bijection between a pair of random variables.
+            Typically, one
+            of these random variables \((Z)\) is chosen to be something for which the probability density function is
+            known and
+            tractable (e.g. <a href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian</a>). While the other
+            random variable \((X)\) is the one we are interested in modelling. In our case, the latter is a clean image.
+            As in any deep neural network, \(h\) is a composition of many layers \(h_1, h_2, \dots, h_n\). Now,
+            \begin{align}
+            X = h(Z) &= h_n \circ h_{n-1} \circ \dots h_1 (Z)\\
+            \implies \log{f_X(x)} &= \log{f_Z(z)} - \sum_{i=1}^n \log{|J_{h_i}|}\\
+            \end{align}
+            where \(J_{h_i}\) is the <a
+                href="https://en.wikipedia.org/wiki/Jacobian_matrix_and_determinant">Jacobian</a> of the
+            \(i^{\text{th}}\) layer. The weights of the network \(h\) are trained by maximizing the above log-likelihood
+            of \(X\).
+            Note that you cannot use any old layer in \(h\); it has to be bijective and its Jacobian must be easy to
+            compute. This rules out the most obvious choices such as convolution, pooling etc (at least they cannot be
+            used directly as one would in a standard classification model). For some examples of layers that fit the
+            bill, check out <a href="https://arxiv.org/abs/1410.8516">Dinh et al.</a>, <a
+                href="https://arxiv.org/abs/1807.03039">Kingma et al.</a> If you are interested in learning more
+            theoretical details about flow-based generative models, see this
+            excellent <a href="https://arxiv.org/pdf/1912.02762.pdf" rel="noreferrer" target="_blank">tutorial on
+                flow-based generative models</a>.
+        </p>
+    </section>
+    <section>
+        <h3>Core Idea</h3>
+        <p>
+            Our method proceeds in two stages:
+        </p>
+        <h4>Stage 1</h4>
+        <h4>Stage 2</h4>
+    </section>
+    <section>
+        <h3>Select References</h3>
+    </section>
+</div>

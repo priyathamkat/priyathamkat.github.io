@@ -13,3 +13,7 @@ plugins:
 collections:
     posts:
         permalink: /blog/:title/
+
+    projects:
+        permalink: /projects/:title/
+        output: true

@@ -65,6 +65,21 @@
             color: var(--highlight-color);
         }
 
+        .when {
+            padding-left: 5px;
+            font-size: 0.9em;
+            color: green;
+            font-weight: normal;
+        }
+
+        .when::before {
+            content: "[";
+        }
+
+        .when::after {
+            content: "]";
+        }
+
         a.btn {
             color: white;
             border-radius: 4px;
@@ -238,21 +253,6 @@
         #course-list {
             list-style-type: disc;
             padding-left: 1em;
-        }
-
-        .when {
-            padding-left: 5px;
-            font-size: 0.9em;
-            color: green;
-            font-weight: normal;
-        }
-
-        .when::before {
-            content: "[";
-        }
-
-        .when::after {
-            content: "]";
         }
 
         .accomplishment {

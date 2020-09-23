@@ -8,6 +8,7 @@
     <meta name="author" content="Priyatham Kattakinda">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1.0">
     <meta name="description" content="Priyatham Kattakinda's blog">
+    <link rel="icon" href="/assets/images/favicon.ico" sizes="16x16 32x32" type="image/png">
     <link rel="stylesheet" href="/assets/main.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     {% if page.css %}
@@ -23,7 +24,7 @@
     {%- include nav.html -%}
     {%- include header.html -%}
     <div class="page-title">
-        <time class="gray">{{ page.date | date: "%b %-d, %Y" }}</time>
+        <time datetime="{{ page.date }}" class="gray">{{ page.date | date: "%b %-d, %Y" }}</time>
         <h1>{{ page.title }}</h1>
         <p class="gray"><i>{{ page.summary }}</i></p>
     </div>

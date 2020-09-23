@@ -9,22 +9,26 @@ permalink: /blog/
     <meta name="author" content="Priyatham Kattakinda">
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1.0">
     <meta name="description" content="Priyatham Kattakinda's blog">
+    <link rel="icon" href="/assets/images/favicon.ico" sizes="16x16 32x32" type="image/png">
     <link rel="stylesheet" href="/assets/main.css">
     <link rel="stylesheet" href="/assets/css/style.css">
-    <title>Priyatham Kattakinda</title>
+    <link rel="stylesheet" href="/assets/css/blog.css">
+    <title>Priyatham Kattakinda | Blog</title>
 </head>
 
 <body>
     {%- include nav.html -%}
     {%- include header.html -%}
-    <ul class="blog-list">
-        {% for post in site.posts %}
-        <li class="page-title">
-            <time>{{ post.date | date: "%b %-d, %Y" }}</time>
-            <a href="{{ post.url }}">
-                <h2>{{ post.title }}</h2>
-            </a>
-            <p><i>{{ post.summary }}</i></p>
+    <ul id="article-list">
+        {% for article in site.posts %}
+        <li class="article">
+            <div class="article-title">
+                <time datetime="{{ article.date }}">{{ article.date | date: "%b %-d, %Y" }}</time>
+                <a href="{{ article.url }}">
+                    <h2>{{ article.title }}</h2>
+                </a>
+            </div>
+            <p><i>{{ article.summary }}</i></p>
         </li>
         {% endfor %}
     </ul>
