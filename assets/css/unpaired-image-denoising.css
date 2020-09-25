@@ -1,0 +1,17 @@
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+figcaption {
+    font-style: italic;
+    text-align: center;
+}
+
+@media screen and (min-width: 750px) {
+    img {
+        width: 70%;
+        height: 70%;
+    }
+}

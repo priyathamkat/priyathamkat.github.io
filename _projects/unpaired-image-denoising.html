@@ -13,10 +13,12 @@ possible to use supervised learning here). This work was published in IEEE Inter
 (ICIP), 2020.
 "
 links:
+- <a class="pink btn" href="https://arxiv.org/abs/2009.11532" rel="noreferrer" target="_blank">Paper</a>
 - <a class="pink btn" href="https://github.com/priyathamkat/unpaired-image-denoising" rel="noreferrer"
     target="_blank">Code</a>
-showPage: false
+showPage: true
 ord: 2
+css: unpaired-image-denoising.css
 ---
 <div>
     <section>
@@ -24,24 +26,25 @@ ord: 2
         <p>
             Deep learning approaches in image processing predominantly resort to supervised learning. A majority of
             methods for image denoising are no exception to this rule and hence demand pairs of noisy and corresponding
-            clean images. Only recently has there been the emergence of methods such as Noise2Void, where a deep neural
-            network learns to denoise solely from noisy images. However, when clean images that do not directly
-            correspond to any of the noisy images are actually available, there is room for improvement as these clean
-            images contain useful information that fully unsupervised methods do not exploit. In this paper, we propose
-            a method for image denoising in this setting. First, we use a flow-based generative model to learn a prior
-            from clean images. We then use it to train a denoising network without the need for any clean targets. We
-            demonstrate the efficacy of our method through extensive experiments and comparisons.
+            clean images. Only recently has there been the emergence of methods such as Noise2Void <sup><a
+                    href="#n2v">[3]</a></sup>, where a deep neural network learns to denoise solely from noisy images.
+            However, when clean images that do not directly correspond to any of the noisy images are actually
+            available, there is room for improvement as these clean images contain useful information that fully
+            unsupervised methods do not exploit. In this paper, we propose a method for image denoising in this setting.
+            First, we use a flow-based generative model to learn a prior from clean images. We then use it to train a
+            denoising network without the need for any clean targets. We demonstrate the efficacy of our method through
+            extensive experiments and comparisons.
         </p>
     </section>
     <section>
         <h3>Some Background</h3>
         <h4>Flow-based Generative Models</h4>
         <p>
-            Simply put, a flow-based generative model \((h)\) is a bijection between a pair of random variables.
-            Typically, one
-            of these random variables \((Z)\) is chosen to be something for which the probability density function is
-            known and
-            tractable (e.g. <a href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian</a>). While the other
+            Simply put, a flow-based generative model <sup><a href="#nice">[2]</a></sup> \((h)\) is a bijection between
+            a
+            pair of random variables. Typically, one of these random variables \((Z)\) is something for
+            which the probability density function is known and tractable (e.g. <a
+                href="https://en.wikipedia.org/wiki/Normal_distribution">Gaussian</a>). While the other
             random variable \((X)\) is the one we are interested in modelling. In our case, the latter is a clean image.
             As in any deep neural network, \(h\) is a composition of many layers \(h_1, h_2, \dots, h_n\). Now,
             \begin{align}
@@ -53,9 +56,9 @@ ord: 2
             \(i^{\text{th}}\) layer. The weights of the network \(h\) are trained by maximizing the above log-likelihood
             of \(X\).
             Note that you cannot use any old layer in \(h\); it has to be bijective and its Jacobian must be easy to
-            compute. This rules out the most obvious choices such as convolution, pooling etc (at least they cannot be
-            used directly as one would in a standard classification model). For some examples of layers that fit the
-            bill, check out <a href="https://arxiv.org/abs/1410.8516">Dinh et al.</a>, <a
+            compute. This rules out the most obvious choices such as convolution, pooling etc (at least not in their
+            typical form). For some examples of layers that fit the bill, check out <a
+                href="https://arxiv.org/abs/1410.8516">Dinh et al.</a>, <a
                 href="https://arxiv.org/abs/1807.03039">Kingma et al.</a> If you are interested in learning more
             theoretical details about flow-based generative models, see this
             excellent <a href="https://arxiv.org/pdf/1912.02762.pdf" rel="noreferrer" target="_blank">tutorial on
@@ -64,13 +67,79 @@ ord: 2
     </section>
     <section>
         <h3>Core Idea</h3>
+        <figure>
+            <img src="/assets/images/unpaired-image-denoising/training.png">
+            <figcaption>
+                An illustration of our training procedure.
+            </figcaption>
+        </figure>
         <p>
             Our method proceeds in two stages:
         </p>
         <h4>Stage 1</h4>
+        <p>
+            In the first stage, we train a flow-based generative model on clean images. This will act as a prior
+            \((f_C)\) for the
+            denoiser that we train in the next stage.
+        </p>
         <h4>Stage 2</h4>
+        <p>
+            Here, we train a ResNet to denoise images. Starting with the maximum a posteriori (MAP) estimate
+            for the denoised image and a little bit of math, we arrive at the following objective, which we minimize:
+            \begin{equation}
+            (B(D) - B(N)) ^ 2 - \lambda \log {f_C(D)}
+            \end{equation}
+            where \(D\) is the denoised output image, \(N\) is the noisy input image, \(f_C\) is the prior from stage 1,
+            \(\lambda \) is a hyperparameter that controls the relative weighting between the prior and the squared
+            loss, and \(B\) is a blur kernel. To be precise, \(\lambda \) depends on the noise level \((\sigma)\).
+            Bxut because we want our denoiser to work regardless of the noise strength, we blur the input and the output
+            before computing the squared error. Intuitively speaking, this signals the network to reproduce the
+            <span class="nowrap">low-frequency</span> information from the input (which is largely unaffected by noise),
+            while using the prior to fill in the <span class="nonwrap">high-frequency</span> details.
+        </p>
+        <p>
+            I encourage you to look at our paper for more details about the derivation and the training.
+        </p>
+    </section>
+    <section>
+        <h3>Results</h3>
+        <figure>
+            <img src="/assets/images/unpaired-image-denoising/comparison.png">
+            <figcaption>
+                A comparison of our method. Noise level \((\sigma ) = 25 \). It's easier to spot the differences in the
+                paper.
+            </figcaption>
+        </figure>
+        <p>
+            Check out our paper for quantitative results.
+        </p>
     </section>
     <section>
         <h3>Select References</h3>
+        <ol>
+            <li id="nice">
+                Laurent Dinh, David Krueger, and Yoshua Bengio,
+                “NICE: non-linear independent components estimation,” in 3rd International Conference on Learning
+                Representations, ICLR 2015, San Diego, CA, USA, May 7-9,
+                2015, Workshop Track Proceedings, Yoshua Bengio and
+                Yann LeCun, Eds., 2015.
+            </li>
+            <li id="bm3d">
+                K. Dabov, A. Foi, V. Katkovnik, and K. Egiazarian,
+                “Image denoising by sparse 3-d transform-domain collaborative filtering,” IEEE Transactions on Image
+                Processing, vol. 16, no. 8, pp. 2080–2095, Aug 2007.
+            </li>
+            <li id="n2v">
+                A. Krull, T. Buchholz, and F. Jug, “Noise2void -
+                learning denoising from single noisy images,” in 2019
+                IEEE/CVF Conference on Computer Vision and Pattern
+                Recognition (CVPR), June 2019, pp. 2124–2132.
+            </li>
+            <li id="dip">
+                Dmitry Ulyanov, Andrea Vedaldi, and Victor Lempitsky, “Deep image prior,” in Proceedings of the
+                IEEE Conference on Computer Vision and Pattern
+                Recognition, 2018, pp. 9446–9454.
+            </li>
+        </ol>
     </section>
 </div>
