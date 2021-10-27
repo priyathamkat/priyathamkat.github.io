@@ -1,8 +1,8 @@
 :root {
-    --highlight-color: rgb(57, 96, 219);
-    --timeline-color: rgb(152, 219, 132);
-    --link-color: rgb(194, 50, 84);
-    --text-color: rgb(32, 32, 32);
+    --highlight-color: rgb(1, 43, 133);
+    --timeline-color: rgb(186, 205, 247);
+    --link-color: rgb(207, 10, 72);
+    --text-color: rgb(0, 0, 0);
 }
 
 html {
@@ -71,7 +71,7 @@ a > h1, a > h2 {
 
 .when {
     font-size: 0.9em;
-    color: green;
+    color: rgb(26, 87, 219);
     font-weight: normal;
 }
 
