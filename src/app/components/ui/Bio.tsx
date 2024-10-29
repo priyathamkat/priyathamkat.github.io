@@ -1,13 +1,20 @@
+import Link from "next/link";
+
 const Bio: React.FC = () => {
     return (
         <div className="mx-auto max-w-5xl p-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            I am the technical lead at{" "}
+            <Link
+                target="_blank"
+                href="https://relai.ai"
+                className="no-underline text-blue-600 hover:underline font-medium"
+            >
+                RELAI
+            </Link>{" "}
+            focusing on reliability of AI/ML models. Previously, I received my
+            PhD from the University of Maryland, College Park where I was advised by Prof.
+            Soheil Feizi. My research interests are in evaluating and improving
+            robustness of machine learning models.
         </div>
     );
 };
