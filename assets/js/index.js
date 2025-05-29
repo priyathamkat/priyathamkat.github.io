@@ -1,5 +1,5 @@
 const emailIcon = document.querySelector('#email-icon');
-const name = document.querySelector('h1');
+const myName = document.querySelector('h1');
 const email = document.querySelector('#email');
 
 function setEmail(text) {
@@ -8,10 +8,10 @@ function setEmail(text) {
 
 function showEmail(e) {
     e.preventDefault();
-    let id = name.textContent;
-    id = `${id[0]}${id.slice(10, 17)}`;
+    let id = myName.textContent;
+    id = `${id.slice(0, 9)}${id.slice(10, 13)}`;
     id = id.toLowerCase();
-    const emailAddress = `${id}@umd.edu`; 
+    const emailAddress = `${id}@gmail.com`; 
     email.textContent = emailAddress;
     email.removeEventListener('click', showEmail);
 }

@@ -40,38 +40,23 @@
     <body>
         {%- include nav.html -%}
         <div class="info-card">
-            <amp-img
+            <img
                 class="headshot"
                 src="/assets/images/headshot.jpeg"
                 width="154"
                 height="154"
                 alt="Priyatham Kattakinda's headshot"
             >
-            </amp-img>
+            </img>
             <h1>Priyatham Kattakinda</h1>
             <p>
                 Technical Lead <br />
                 <a href="https://relai.ai">RELAI</a>
             </p>
             <div>
-                <amp-state id="emailAddress">
-                    <script type="application/json">
-                        " "
-                    </script>
-                </amp-state>
-                <amp-state id="emailComponents">
-                    <script type="application/json">
-                        {
-                            "id": "pkattaki",
-                            "domain": "@umd.edu"
-                        }
-                    </script>
-                </amp-state>
                 <ul id="social">
                     <li id="email-icon">
-                        <a
-                            on="tap:AMP.setState({emailAddress: emailComponents.id + emailComponents.domain})"
-                        >
+                        <a>
                             <i class="fa-solid fa-envelope fa-3x"></i>
                         </a>
                     </li>
